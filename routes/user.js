@@ -99,6 +99,7 @@ router.post('/login', (req,res) => {
                           id:user.id,
                           firstname: user.firstname,
                           lastname: user.lastname,
+                          accountType: user.accountType
                           
                       }
 
@@ -139,7 +140,8 @@ router.get('/current', passport.authenticate('jwt',{session: false}), (req,res) 
         id: req.user.id,
         firstname: req.user.firstname,
         lastname: req.user.lastname,
-        email: req.user.email
+        email: req.user.email,
+        accountType: req.user.accountType
     });
 })
 

@@ -5,6 +5,7 @@ const passport = require('passport');
 
 //LOAD user.js
 const users = require('./routes/user');
+const orgs = require('./routes/orgs');
 //Load keys.js
 const keys = require('./config/keys');
 
@@ -17,6 +18,7 @@ const app = express();
 app.use(passport.initialize());
 //Load passport config
 require('./config/passport')(passport);
+//require('./config/orgpassport')(passport);
 /***************  Passport Middleware *******************/
 
 
@@ -37,6 +39,7 @@ mongoose.connect(keys.mongodb)
 /****************** Middleware Route  *******************/
 //@server setup
 app.use('/api/users', users);
+app.use('/api/orgs/', orgs);
 
 /****************** Middleware Route ******************/
 
